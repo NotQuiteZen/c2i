@@ -59,10 +59,16 @@ curl -sL ${repo}/templates/app/View/Layouts/default.ctp > ${base_path}/app/View/
 echoMsg "Creating /app/View/Pages/home.ctp"
 curl -sL ${repo}/templates/app/View/Pages/home.ctp > ${base_path}/app/View/Pages/home.ctp
 
-echoMsg "Creating /app/Assets/entry/index.js"
-echoMsg mkdir -p "${base_path}/app/Assets/entry"
+echoMsg "Creating /app/Assets directories"
 mkdir -p "${base_path}/app/Assets/entry"
+mkdir -p "${base_path}/app/Assets/scss"
+mkdir -p "${base_path}/app/Assets/js"
+
+echoMsg "Creating /app/Assets/entry/index.js"
 curl -sL ${repo}/templates/app/Assets/entry/index.js > ${base_path}/app/Assets/entry/index.js
+
+echoMsg "Creating /app/Assets/scss/index.scss"
+curl -sL ${repo}/templates/app/Assets/scss/index.js > ${base_path}/app/Assets/scss/index.scss
 
 echoMsg "Making /app/tmp world-writable"
 chmod a+w -R ${base_path}/app/tmp

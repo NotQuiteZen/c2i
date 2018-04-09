@@ -94,6 +94,7 @@ module.exports = (env) => {
                         name: 'commons',
                         chunks: 'all',
                         minChunks: 1,
+                        enforce: true
                     },
                 },
             }
