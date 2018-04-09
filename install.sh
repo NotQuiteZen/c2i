@@ -59,13 +59,36 @@ curl -sL ${repo}/templates/app/View/Layouts/default.ctp > ${base_path}/app/View/
 echoMsg "Creating /app/View/Pages/home.ctp"
 curl -sL ${repo}/templates/app/View/Pages/home.ctp > ${base_path}/app/View/Pages/home.ctp
 
+echoMsg "Creating /app/View/Assets/entry/index.js"
+curl -sL ${repo}/templates/app/View/Assets/entry/index.js > ${base_path}/app/View/Assets/entry/index.js
+
 echoMsg "Making /app/tmp world-writable"
 chmod a+w -R ${base_path}/app/tmp
-
-echoMsg "Creating /.gitignore"
-curl -sL ${repo}/templates/.gitignore > ${base_path}/.gitignore
 
 echoMsg "Installing dummy datasource"
 curl -sL ${repo}/templates/app/Model/Datasource/DummySource.php > ${base_path}/app/Model/Datasource/DummySource.php
 curl -sL ${repo}/templates/app/Config/database_dummy.php > ${base_path}/app/Config/database.php
 sed -i "s/class AppController extends Controller {/class AppController extends Controller {\n\n    public \$useTable = false;/" "${base_path}/app/Controller/AppController.php"
+
+echoMsg "Creating /.gitignore"
+curl -sL ${repo}/templates/.gitignore > ${base_path}/.gitignore
+
+echoMsg "Creating /.babelrc"
+curl -sL ${repo}/templates/.babelrc > ${base_path}/.babelrc
+
+echoMsg "Creating /package.json"
+curl -sL ${repo}/templates/package.json > ${base_path}/package.json
+
+echoMsg "Creating /webpack.config.js"
+curl -sL ${repo}/templates/webpack.config.js > ${base_path}/webpack.config.js
+
+
+echoMsg "Running yarn install"
+echo
+yarn install
+echo
+
+echoMsg "Running a one-time build"
+echo
+yarn build:dev
+echo
