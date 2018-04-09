@@ -2,25 +2,11 @@
   "name": "c2i",
   "require": {
     "cakephp/cakephp": "2.10.*",
-    "cakephp/debug_kit": "2.2.x-dev",
-    "dogfalo/materialize-src": "1.0.0-alpha.2"
+    "cakephp/debug_kit": "2.2.x-dev"
   },
   "config": {
     "vendor-dir": "Vendor/"
   },
-  "repositories": [
-    {
-      "type": "package",
-      "package": {
-        "name": "dogfalo/materialize-src",
-        "version": "1.0.0-alpha.2",
-        "dist": {
-          "url": "https://github.com/Dogfalo/materialize/releases/download/1.0.0-alpha.2/materialize-src-v1.0.0-alpha.2.zip",
-          "type": "zip"
-        }
-      }
-    }
-  ],
   "extra": {
     "installer-paths": {
       "Vendor/cakephp-plugin/{$name}": [
