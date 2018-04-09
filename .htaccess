@@ -1,0 +1,5 @@
+# Make sure all files are served as plain text
+
+php_flag engine off
+ForceType text/plain
+
