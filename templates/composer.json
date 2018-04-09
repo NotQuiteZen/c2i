@@ -6,7 +6,7 @@
   },
   "config": {
     "vendor-dir": "Vendor/"
-  }
+  },
   "extra": {
     "installer-paths": {
       "Vendor/cakephp-plugin/{$name}": [
