@@ -60,7 +60,7 @@ echoMsg "Creating /app/View/Pages/home.ctp"
 curl -sL ${repo}/templates/app/View/Pages/home.ctp > ${base_path}/app/View/Pages/home.ctp
 
 echoMsg "Creating /app/View/Assets/entry/index.js"
-curl -sL ${repo}/templates/app/View/Assets/entry/index.js > ${base_path}/app/View/Assets/entry/index.js
+curl -sL ${repo}/templates/app/Assets/entry/index.js > ${base_path}/app/Assets/entry/index.js
 
 echoMsg "Making /app/tmp world-writable"
 chmod a+w -R ${base_path}/app/tmp
