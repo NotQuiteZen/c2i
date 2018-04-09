@@ -60,8 +60,8 @@ echoMsg "Creating /app/View/Pages/home.ctp"
 curl -sL ${repo}/templates/app/View/Pages/home.ctp > ${base_path}/app/View/Pages/home.ctp
 
 echoMsg "Creating /app/Assets/entry/index.js"
-mkdir ${base_path}/app/Assets
-mkdir ${base_path}/app/Assets/entry
+echoMsg mkdir -p "${base_path}/app/Assets/entry"
+mkdir -p "${base_path}/app/Assets/entry"
 curl -sL ${repo}/templates/app/Assets/entry/index.js > ${base_path}/app/Assets/entry/index.js
 
 echoMsg "Making /app/tmp world-writable"
