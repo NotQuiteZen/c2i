@@ -3,29 +3,24 @@ const path = require('path');
 const webpack = require('webpack');
 
 const WebpackWatchedGlobEntries = require('webpack-watched-glob-entries-plugin');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
-
-// Initialize the extract plugin to extract css to a different file
-const extractPlugin = new ExtractTextPlugin({
-    filename: '[name].css'
-});
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 // Config
 module.exports = (env) => {
 
     if (typeof env !== 'object' || !'env' in env) {
-    	env = {
-    		env: 'dev'
-    	};
+        env = {
+            env: 'dev'
+        };
     }
 
-	return {
+    return {
 
-		// Devtool
-		devtool: env.env === 'dev' ? 'eval-source-map' : 'source-map',
+        // Devtool
+        devtool: env.env === 'dev' ? 'eval-source-map' : 'source-map',
 
-		// Entries
-    	entry: WebpackWatchedGlobEntries.getEntries(path.resolve(__dirname, 'app', 'Assets', 'entry', '**', '*.js')),
+        // Entries
+        entry: WebpackWatchedGlobEntries.getEntries(path.resolve(__dirname, 'app', 'Assets', 'entry', '**', '*.js')),
 
         // Output
         output: {
@@ -36,12 +31,12 @@ module.exports = (env) => {
         },
 
         // Mode
-		mode: env.env === 'dev' ? 'development' : 'production',
+        mode: env.env === 'dev' ? 'development' : 'production',
 
-		// Resolve
-		resolve: {
-			modules: [path.resolve(__dirname, 'Vendor', 'node_modules'), 'node_modules'],
-		},
+        // Resolve
+        resolve: {
+            modules: [path.resolve(__dirname, 'Vendor', 'node_modules'), 'node_modules'],
+        },
 
         // Module
         module: {
@@ -50,12 +45,11 @@ module.exports = (env) => {
                 // SCSS rule
                 {
                     test: /\.scss$/,
-                    loader: ExtractTextPlugin.extract({
-                        use: [
-                            "css-loader",
-                            "sass-loader",
-                        ]
-                    })
+                    use: [
+                        MiniCssExtractPlugin.loader,
+                        "css-loader",
+                        "sass-loader",
+                    ]
                 },
 
                 // Babel rule
@@ -82,19 +76,19 @@ module.exports = (env) => {
             ],
         },
 
-
         // Optimization
         optimization: {
             splitChunks: {
                 chunks: "all",
                 name: true,
                 cacheGroups: {
-                    vendors: false,
+                    vendor: false,
                     default: {
                         name: 'commons',
                         chunks: 'all',
-                        minChunks: 1,
-                        enforce: true
+                        minChunks: 2,
+                        enforce: true,
+                        reuseExistingChunk: true,
                     },
                 },
             }
@@ -102,13 +96,16 @@ module.exports = (env) => {
 
         // Plugins
         plugins: [
-        	extractPlugin,
-         	new WebpackWatchedGlobEntries(),
+            new MiniCssExtractPlugin({
+                filename: "[name].css",
+                chunkFilename: "[id].css"
+            }),
+            new WebpackWatchedGlobEntries(),
             new webpack.ProvidePlugin({
                 $: "jquery",
                 jQuery: "jquery",
                 "window.jQuery": "jquery"
             })
         ]
-	};
+    };
 };

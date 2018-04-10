@@ -68,7 +68,7 @@ echoMsg "Creating /app/Assets/entry/index.js"
 curl -sL ${repo}/templates/app/Assets/entry/index.js > ${base_path}/app/Assets/entry/index.js
 
 echoMsg "Creating /app/Assets/scss/index.scss"
-curl -sL ${repo}/templates/app/Assets/scss/index.js > ${base_path}/app/Assets/scss/index.scss
+curl -sL ${repo}/templates/app/Assets/scss/index.scss > ${base_path}/app/Assets/scss/index.scss
 
 echoMsg "Making /app/tmp world-writable"
 chmod a+w -R ${base_path}/app/tmp
@@ -93,7 +93,7 @@ curl -sL ${repo}/templates/webpack.config.js > ${base_path}/webpack.config.js
 
 echoMsg "Running yarn install"
 echo
-yarn install
+yarn install --silent
 echo
 
 echoMsg "Running a one-time build"
