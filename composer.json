@@ -1,0 +1,18 @@
+{
+  "name": "c2i",
+  "require": {
+    "cakephp/cakephp": "2.10.*",
+    "cakephp/debug_kit": "2.2.x-dev"
+  },
+  "config": {
+    "vendor-dir": "Vendor/"
+  },
+  "extra": {
+    "installer-paths": {
+      "Vendor/cakephp-plugin/{$name}": [
+        "type:cakephp-plugin"
+      ]
+    }
+  }
+} 
+
