@@ -38,11 +38,14 @@ curl -sL ${repo}/templates/public_html/htaccess > ${base_path}/public_html/.htac
 echoMsg "Installing /app/Config/bootstrap.php"
 curl -sL ${repo}/templates/app/Config/bootstrap.php > ${base_path}/app/Config/bootstrap.php
 
+echoMsg "Installing /app/Config/core.php"
+curl -sL ${repo}/templates/app/Config/core.php > ${base_path}/app/Config/core.php
+
 echoMsg "Setting salt and cipherSeed in /app/Config/core.php"
 NEW_SALT=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 64 | head -n 1 || true)
 NEW_CIPHERSEED=$(cat /dev/urandom | tr -dc '0-9' | fold -w 32 | head -n 1 || true)
-sed -i "s/Configure::write('Security.salt', 'DYhG93b0qyJfIxfs2guVoUubWwvniR2G0FgaC9mi');/Configure::write('Security.salt', '$NEW_SALT');/" "${base_path}/app/Config/core.php"
-sed -i "s/Configure::write('Security.cipherSeed', '76859309657453542496749683645');/Configure::write('Security.cipherSeed', '$NEW_CIPHERSEED');/" "${base_path}/app/Config/core.php"
+sed -i "s/Configure::write('Security.salt', '__SECURITY__SALT__');/Configure::write('Security.salt', '$NEW_SALT');/" "${base_path}/app/Config/core.php"
+sed -i "s/Configure::write('Security.cipherSeed', '__SECURITY__CIPHERSEED__');/Configure::write('Security.cipherSeed', '$NEW_CIPHERSEED');/" "${base_path}/app/Config/core.php"
 
 echoMsg "Installing /app/Config/html5_tags.php"
 curl -sL ${repo}/templates/app/Config/html5_tags.php > ${base_path}/app/Config/html5_tags.php
