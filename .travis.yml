@@ -9,4 +9,4 @@ git:
 
 install: true
 
-script: composer create-project milanzor/c2i -s dev
+script: composer create-project -s dev milanzor/c2i .
