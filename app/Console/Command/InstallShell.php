@@ -21,11 +21,10 @@ class InstallShell extends AppShell {
 
         $this->out('Setup');
         $this->hr();
-
         $this->out("\n");
 
         # /app/tmp permissions
-        $this->out("\n<info>*</info> Changing permissions for tmp");
+        $this->out("<info>*</info> Changing permissions for tmp");
 
         foreach ($this->_writable_dirs as $writable_dir) {
             $path = $this->_rootDir . '/' . $writable_dir;
@@ -45,7 +44,6 @@ class InstallShell extends AppShell {
         $key = hash('sha256', Security::randomBytes(64));
         $this->_replacePlaceholder('Config/core.php', '__SECURITY_KEY__', $key, 'Security.key');
 
-        $this->out("\nDone!\n");
     }
 
     private function _replacePlaceholder($file, $search, $replace, $pretty_name) {
