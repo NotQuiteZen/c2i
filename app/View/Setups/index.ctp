@@ -7,14 +7,19 @@
     <meta name="description" content="c2i">
     <meta name="author" content="Wouter Dam & Milan van As">
     <title>c2i setup</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.0.0/materia/bootstrap.min.css" rel="stylesheet" integrity="sha384-kpxyUW5uLgBOlhLqm8Hga/aWgf7FgZWLhphVqsMgaW0s+G6KF1RZpUb6ygQL3WUE" crossorigin="anonymous">
 </head>
 
-<body>
+<body class="bg-primary pt-4">
 <div class="container">
-    <div style="padding-top:120px; text-align:center;">
-        <h1>Hello world!</h1>
-       
+    <div class="col col-sm-12 col-md-8 offset-md-2 mt-4 pt-4">
+        <div class="jumbotron bg-white text-center">
+            <h1 class="display-3">Welcome to c2i!</h1>
+            <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at vulputate purus, vitae ullamcorper nisl. Suspendisse id libero at turpis ornare placerat et sit amet felis.</p>
+            <hr class="my-4">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at vulputate purus, vitae ullamcorper nisl.</p>
+            <a class="btn btn-primary btn-lg" href="#" role="button">Cool</a>
+        </div>
     </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
