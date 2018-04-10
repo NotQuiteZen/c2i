@@ -13,6 +13,13 @@
         "type:cakephp-plugin"
       ]
     }
+  },
+  "scripts": {
+      "post-install-cmd": [
+          "mv app/Config/core.php.template app/Config/core.php",
+          "mv app/Config/database.php.template app/Config/database.php",
+          "Vendor/bin/cake -app app install postInstall"
+      ],
+      "post-create-project-cmd": "@post-install-cmd"
   }
-} 
-
+}

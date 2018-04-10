@@ -32,8 +32,9 @@ Configure::write('Session', [
 ]);
 
 # Security
-Configure::write('Security.salt', '__SECURITY__SALT__');
-Configure::write('Security.cipherSeed', '__SECURITY__CIPHERSEED__');
+Configure::write('Security.salt', '__SECURITY_SALT__');
+Configure::write('Security.cipherSeed', '__SECURITY_CIPHERSEED__');
+Configure::write('Security.key', '__SECURITY_KEY__');
 Configure::write('Security.useOpenSsl', true);
 
 # Acl
@@ -54,6 +55,7 @@ Cache::config('_cake_core_', [
     'path' => CACHE . 'persistent' . DS,
     'serialize' => ($engine === 'File'),
     'duration' => $duration,
+    'mask' => 0666,
 ]);
 Cache::config('_cake_model_', [
     'engine' => $engine,
@@ -61,6 +63,7 @@ Cache::config('_cake_model_', [
     'path' => CACHE . 'models' . DS,
     'serialize' => ($engine === 'File'),
     'duration' => $duration,
+    'mask' => 0666,
 ]);
 
 /**
