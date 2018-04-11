@@ -1,52 +1,69 @@
 <?php
 
+/**
+ * Class InstallShell
+ */
 class InstallShell extends AppShell {
 
     private $_writable_dirs = [
-        'tmp',
-        'tmp/cache',
-        'tmp/cache/models',
-        'tmp/cache/persistent',
-        'tmp/cache/views',
-        'tmp/logs',
-        'tmp/sessions',
-        'tmp/tests',
+        APP . 'tmp',
+        APP . 'tmp' . DS . 'cache',
+        APP . 'tmp' . DS . 'cache' . DS . 'models',
+        APP . 'tmp' . DS . 'cache' . DS . 'persistent',
+        APP . 'tmp' . DS . 'cache' . DS . 'views',
+        APP . 'tmp' . DS . 'logs',
+        APP . 'tmp' . DS . 'sessions',
+        APP . 'tmp' . DS . 'tests',
     ];
 
-    private $_rootDir = '';
+    private $_delete_files = [
+        ROOT . DS . 'LICENSE',
+        ROOT . DS . '.travis.yml',
+        ROOT . DS . 'README.md',
+    ];
 
     public function postInstall() {
 
-        $this->_rootDir = dirname(dirname(__DIR__));
-
+        # Show logo
         $this->_c2ilogo();
 
-        # /app/tmp permissions
+        #
         $this->out("<info>*</info> Changing permissions for tmp");
 
+        # Make $this->_writable_dirs writable
         foreach ($this->_writable_dirs as $writable_dir) {
-            $path = $this->_rootDir . '/' . $writable_dir;
-            if ( ! chmod($path, 0777)) {
-                $this->out("<error>Failed</error> to change permissions for " . $path);
+            if ( ! chmod($writable_dir, 0777)) {
+                $this->out("<error>Failed</error> to change permissions for " . $writable_dir);
             }
         }
 
+        #
+        $this->out("<info>*</info> Deleting non-project files");
+
+        # Delete $this->_delete_files files
+        foreach ($this->_delete_files as $delete_file) {
+            if ( ! unlink($delete_file)) {
+                $this->out("<error>Failed</error> to delete " . $delete_file);
+            }
+        }
+        
         # Security.salt
         $salt = hash('sha256', Security::randomBytes(64));
-        $this->_replacePlaceholder('Config/core.php', '__SECURITY_SALT__', $salt, 'Security.salt');
+        $this->_replacePlaceholder('Config' . DS . 'core.php', '__SECURITY_SALT__', $salt, 'Security.salt');
 
         # Security.cipherSeed
-        $this->_replacePlaceholder('Config/core.php', '__SECURITY_CIPHERSEED__', $this->_cipher(), 'Security.cipherSeed');
+        $this->_replacePlaceholder('Config' . DS . 'core.php', '__SECURITY_CIPHERSEED__', $this->_cipher(), 'Security.cipherSeed');
 
         # Security.cipherSeed
         $key = hash('sha256', Security::randomBytes(64));
-        $this->_replacePlaceholder('Config/core.php', '__SECURITY_KEY__', $key, 'Security.key');
+        $this->_replacePlaceholder('Config' . DS . 'core.php', '__SECURITY_KEY__', $key, 'Security.key');
+
 
     }
 
     private function _replacePlaceholder($file, $search, $replace, $pretty_name) {
 
-        $path = $this->_rootDir . '/' . $file;
+        $path = APP . DS . $file;
 
         $content = file_get_contents($path);
 
