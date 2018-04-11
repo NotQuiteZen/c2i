@@ -7,7 +7,6 @@
 /app/tmp/logs/*.log*
 
 /Vendor
-composer.lock
 
 *.mo
 /.htpasswd
