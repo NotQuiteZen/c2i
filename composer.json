@@ -20,7 +20,6 @@
           "mv app/Config/database.php.template app/Config/database.php",
           "Vendor/bin/cake -app app install postInstall",
           "yarn install --silent && yarn build --silent"
-      ],
-      "post-create-project-cmd": "@post-update-cmd"
+      ]
   }
 }
