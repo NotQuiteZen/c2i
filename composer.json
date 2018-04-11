@@ -15,12 +15,12 @@
     }
   },
   "scripts": {
-      "post-install-cmd": [
+      "post-update-cmd": [
           "mv app/Config/core.php.template app/Config/core.php",
           "mv app/Config/database.php.template app/Config/database.php",
           "Vendor/bin/cake -app app install postInstall",
           "yarn install --silent && yarn build --silent"
       ],
-      "post-create-project-cmd": "@post-install-cmd"
+      "post-create-project-cmd": "@post-update-cmd"
   }
 }
