@@ -19,9 +19,7 @@ class InstallShell extends AppShell {
 
         $this->_rootDir = dirname(dirname(__DIR__));
 
-        $this->out('Setup');
-        $this->hr();
-        $this->out("\n");
+        $this->_c2ilogo();
 
         # /app/tmp permissions
         $this->out("<info>*</info> Changing permissions for tmp");
@@ -79,4 +77,14 @@ class InstallShell extends AppShell {
         return $n;
     }
 
+    private function _c2ilogo() {
+        $this->out();
+        $this->out('<info> ██████╗██████╗ ██╗    ███████╗███████╗████████╗██╗   ██╗██████╗</info>');
+        $this->out('<info>██╔════╝╚════██╗██║    ██╔════╝██╔════╝╚══██╔══╝██║   ██║██╔══██╗</info>');
+        $this->out('<info>██║      █████╔╝██║    ███████╗█████╗     ██║   ██║   ██║██████╔╝</info>');
+        $this->out('<info>██║     ██╔═══╝ ██║    ╚════██║██╔══╝     ██║   ██║   ██║██╔═══╝</info>');
+        $this->out('<info>╚██████╗███████╗██║    ███████║███████╗   ██║   ╚██████╔╝██║</info>');
+        $this->out('<info> ╚═════╝╚══════╝╚═╝    ╚══════╝╚══════╝   ╚═╝    ╚═════╝ ╚═╝</info>');
+        $this->out();
+    }
 }
