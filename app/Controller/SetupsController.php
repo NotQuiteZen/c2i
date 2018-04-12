@@ -8,6 +8,13 @@ App::uses('AppController', 'Controller');
 class SetupsController extends AppController {
 
     public function index() {
+
+        if ( ! Configure::read('debug')) {
+            throw new NotFoundException();
+        }
+
+        App::uses('Debugger', 'Utility');
+
         $this->set('pagetitle', 'Welcome to c2i!');
     }
 
