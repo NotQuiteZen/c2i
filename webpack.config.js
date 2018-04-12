@@ -82,23 +82,33 @@ module.exports = (env) => {
                 chunks: "all",
                 name: true,
                 cacheGroups: {
-                    vendor: false,
+                    vendors: false,
                     default: {
                         name: 'commons',
                         chunks: 'all',
-                        minChunks: 2,
+                        minChunks: 1,
                         enforce: true,
-                        reuseExistingChunk: true,
                     },
                 },
             }
+        },
+
+        // Performance
+        performance: {
+            hints: false
+        },
+
+        // Stats
+        stats: {
+            chunkModules: false,
+            assets: false,
         },
 
         // Plugins
         plugins: [
             new MiniCssExtractPlugin({
                 filename: "[name].css",
-                chunkFilename: "[id].css"
+                chunkFilename: "[name].css"
             }),
             new WebpackWatchedGlobEntries(),
             new webpack.ProvidePlugin({
