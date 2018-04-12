@@ -8,7 +8,7 @@ App::uses('AppController', 'Controller');
 class SetupsController extends AppController {
 
     public function index() {
-        $this->layout = false;
+        $this->set('pagetitle', 'Welcome to c2i!');
     }
 
 }

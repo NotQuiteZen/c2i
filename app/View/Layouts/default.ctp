@@ -15,14 +15,15 @@
     # Meta
     echo $this->fetch('meta');
 
-    # CSS
-    //    echo $this->Html->css('app.min');
+    # CSS Core
+    echo $this->Html->css('/dist/commons');
 
     # CSS Fetch other styles
     echo $this->fetch('css');
 
-    # JS vendors
-    //    echo $this->Html->script('vendors.min');
+    # JS Core
+    echo $this->Html->script('/dist/commons');
+    echo $this->Html->script('/dist/core');
 
     # JS Fetch other scripts
     echo $this->fetch('script');
