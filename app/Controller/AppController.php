@@ -13,6 +13,13 @@ class AppController extends Controller {
         'Cookie',
         'Session',
         'DebugKit.Toolbar',
+        'Paginator' => ['className' => 'Materialize.MaterializePaginator'],
+    ];
+
+    public $helpers = [
+        'Html' => ['className' => 'Materialize.MaterializeHtml'],
+        'Form' => ['className' => 'Materialize.MaterializeForm'],
+        'Paginator' => ['className' => 'Materialize.MaterializePaginator'],
     ];
 
 }
