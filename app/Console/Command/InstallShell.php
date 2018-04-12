@@ -27,26 +27,22 @@ class InstallShell extends AppShell {
         # Show logo
         $this->_c2ilogo();
 
-        #
-        $this->out("<info>*</info> Changing permissions for tmp");
-
         # Make $this->_writable_dirs writable
+        $this->out("<info>*</info> Changing permissions for tmp");
         foreach ($this->_writable_dirs as $writable_dir) {
             if ( ! chmod($writable_dir, 0777)) {
                 $this->out("<error>Failed</error> to change permissions for " . $writable_dir);
             }
         }
 
-        #
-        $this->out("<info>*</info> Deleting non-project files");
-
         # Delete $this->_delete_files files
+        $this->out("<info>*</info> Deleting non-project files");
         foreach ($this->_delete_files as $delete_file) {
-            if ( ! unlink($delete_file)) {
+            if (file_exists($delete_file) && ! unlink($delete_file)) {
                 $this->out("<error>Failed</error> to delete " . $delete_file);
             }
         }
-        
+
         # Security.salt
         $salt = hash('sha256', Security::randomBytes(64));
         $this->_replacePlaceholder('Config' . DS . 'core.php', '__SECURITY_SALT__', $salt, 'Security.salt');
@@ -58,6 +54,7 @@ class InstallShell extends AppShell {
         $key = hash('sha256', Security::randomBytes(64));
         $this->_replacePlaceholder('Config' . DS . 'core.php', '__SECURITY_KEY__', $key, 'Security.key');
 
+        $this->out("\n");
 
     }
 
@@ -66,7 +63,6 @@ class InstallShell extends AppShell {
         $path = APP . DS . $file;
 
         $content = file_get_contents($path);
-
         $content = str_replace($search, $replace, $content, $count);
 
         if ($count == 0) {
@@ -83,6 +79,7 @@ class InstallShell extends AppShell {
         }
 
         $this->out('<error>Failed</error> to update ' . $pretty_name . ' value');
+
     }
 
     private function _cipher() {
