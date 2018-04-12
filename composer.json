@@ -16,7 +16,7 @@
     }
   },
   "scripts": {
-      "post-update-cmd": [
+      "post-create-project-cmd": [
           "if [ ! -f app/Config/core.php ]; then mv app/Config/core.php.template app/Config/core.php; fi",
           "if [ ! -f app/Config/database.php ]; then mv app/Config/database.php.template app/Config/database.php; fi",
           "Vendor/bin/cake -app app install postInstall",
