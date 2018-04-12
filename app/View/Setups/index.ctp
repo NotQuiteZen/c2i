@@ -1,3 +1,8 @@
+<?php
+/**
+ * @var $this HintView
+ */
+?>
 <div class="blue">
     <div class="container">
         <div class="row">

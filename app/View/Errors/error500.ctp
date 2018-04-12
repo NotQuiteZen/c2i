@@ -1,26 +1,26 @@
 <?php
 /**
- * CakePHP(tm) : Rapid Development Framework (https://cakephp.org)
- * Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
+ * @var $this  HintView
  *
- * Licensed under The MIT License
- * For full copyright and license information, please see the LICENSE.txt
- * Redistributions of files must retain the above copyright notice.
- *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
- * @link          https://cakephp.org CakePHP(tm) Project
- * @package       app.View.Errors
- * @since         CakePHP(tm) v 0.10.0.1076
- * @license       https://opensource.org/licenses/mit-license.php MIT License
+ * @var $message
  */
 ?>
-<h2><?php echo $message; ?></h2>
-<p class="error">
-	<strong><?php echo __d('cake', 'Error'); ?>: </strong>
-	<?php echo __d('cake', 'An Internal Error Has Occurred.'); ?>
-</p>
-<?php
-if (Configure::read('debug') > 0):
-	echo $this->element('exception_stack_trace');
-endif;
-?>
+<div class="red">
+    <div class="container">
+        <div class="row">
+            <div class="col s12">
+                <div class="card-panel white">
+                    <h2 class="red-text"><?=$message?></h2>
+                    <p>
+                        <strong>Error:</strong> An Internal Error Has Occurred.
+                        <?php
+                        if (Configure::read('debug') > 0) {
+                            echo $this->element('exception_stack_trace');
+                        }
+                        ?>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
