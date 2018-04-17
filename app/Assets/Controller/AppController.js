@@ -1,6 +1,11 @@
 // Get DefaultModule
 import { DefaultModule } from 'stein';
 
+import '../scss/app.scss';
+
+import M from 'materialize-css';
+
+M.AutoInit(document.body);
 /**
  *
  */

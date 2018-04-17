@@ -28,7 +28,7 @@ module.exports = (env) => {
         devtool: env.env === 'dev' ? 'eval-source-map' : 'source-map',
 
         // Entries
-        entry: WebpackWatchedGlobEntries.getEntries(path.resolve(__dirname, 'app', 'Assets', 'entry', '**', '*.js')),
+        entry: WebpackWatchedGlobEntries.getEntries(path.resolve(__dirname, 'app', 'Assets', 'Controller', '**', '*.js'), {ignore: '**/AppController.js'}),
 
         // Output
         output: {
