@@ -50,7 +50,7 @@ echo $this->fetch('script-footer');
 
 # JS Core
 echo $this->Html->script('/dist/commons');
-echo $this->Html->script('/dist/DefaultController');
+echo $this->Html->script('/dist/Setups/index');
 echo $this->Flash->render();
 ?>
 </body>

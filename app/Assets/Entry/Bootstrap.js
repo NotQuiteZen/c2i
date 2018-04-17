@@ -6,10 +6,11 @@ import '../scss/app.scss';
 import M from 'materialize-css';
 
 M.AutoInit(document.body);
+
 /**
  *
  */
-export default class Controller extends DefaultModule {
+export default class Bootstrap extends DefaultModule {
     constructor(modules) {
         super();
         if (typeof this.DOMReady === 'function') {
@@ -19,5 +20,4 @@ export default class Controller extends DefaultModule {
         // on DOMContentLoaded, publish DOMReady
         document.addEventListener('DOMContentLoaded', () => this.publish('DOMReady'));
     }
-
 }

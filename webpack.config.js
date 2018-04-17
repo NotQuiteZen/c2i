@@ -28,7 +28,7 @@ module.exports = (env) => {
         devtool: env.env === 'dev' ? 'eval-source-map' : 'source-map',
 
         // Entries
-        entry: WebpackWatchedGlobEntries.getEntries(path.resolve(__dirname, 'app', 'Assets', 'Controller', '**', '*.js'), {ignore: '**/AppController.js'}),
+        entry: WebpackWatchedGlobEntries.getEntries(path.resolve(__dirname, 'app', 'Assets', 'Entry', '**', '*.js'), {ignore: '**/Bootstrap.js'}),
 
         // Output
         output: {
@@ -52,7 +52,7 @@ module.exports = (env) => {
 
                 // SCSS rule
                 {
-                    test: /\.scss$/,
+                    test: /\.scss$|.css$/,
                     use: [
                         MiniCssExtractPlugin.loader,
                         "css-loader",
@@ -86,16 +86,23 @@ module.exports = (env) => {
 
         // Optimization
         optimization: {
+            runtimeChunk: {
+                name: 'commons',
+            },
             splitChunks: {
                 chunks: "all",
-                name: true,
                 cacheGroups: {
                     vendors: false,
-                    default: {
-                        name: 'commons',
-                        chunks: 'all',
+                    style: {
+                        test: /\.scss$|.css$/,
+                        name: "commons",
                         minChunks: 1,
-                        enforce: true,
+                    },
+                    commons: {
+                        name: "commons",
+                        chunks: "all",
+                        minChunks: 2,
+                        enforce: true
                     },
                 },
             }
