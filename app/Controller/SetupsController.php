@@ -7,6 +7,10 @@ App::uses('AppController', 'Controller');
  */
 class SetupsController extends AppController {
 
+    public $components = [
+        'Flash',
+    ];
+
     public function index() {
 
         if ( ! Configure::read('debug')) {
@@ -16,6 +20,7 @@ class SetupsController extends AppController {
         App::uses('Debugger', 'Utility');
 
         $this->set('pagetitle', 'Welcome to c2i!');
+        
     }
 
 }

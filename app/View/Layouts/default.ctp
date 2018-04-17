@@ -21,14 +21,19 @@
     # CSS Fetch other styles
     echo $this->fetch('css');
 
-    # JS Core
-    echo $this->Html->script('/dist/commons');
-    echo $this->Html->script('/dist/core');
-
     # JS Fetch other scripts
     echo $this->fetch('script');
 
+    # Set js appOptions
     ?>
+    <script>
+        window.appOptions = <?=json_encode([
+            'base' => $this->params['base'],
+            'here' => $this->params['here'],
+            'controller' => $this->params['controller'],
+            'action' => $this->params['action'],
+        ])?>;
+    </script>
 </head>
 <body>
 <?php
@@ -43,6 +48,10 @@ echo $this->Html->tag(
 # JS Fetch footer scripts
 echo $this->fetch('script-footer');
 
+# JS Core
+echo $this->Html->script('/dist/commons');
+echo $this->Html->script('/dist/App/index');
+echo $this->Flash->render();
 ?>
 </body>
 </html>
