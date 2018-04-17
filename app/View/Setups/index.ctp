@@ -2,6 +2,9 @@
 /**
  * @var $this HintView
  */
+
+$this->JsConfig->set(['console_message' => 'Hi there, welcome to SetupIndex']);
+
 ?>
 <div class="blue">
     <div class="container">

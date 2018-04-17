@@ -43,7 +43,7 @@ module.exports = (env) => {
 
         // Resolve
         resolve: {
-            modules: [path.resolve(__dirname, 'Vendor', 'node_modules'), 'node_modules'],
+            modules: [path.resolve(__dirname, 'Vendor', 'node_modules'), path.resolve(__dirname, 'app', 'Assets'), 'node_modules'],
         },
 
         // Module

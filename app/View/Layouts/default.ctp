@@ -23,12 +23,12 @@
     echo $this->fetch('script');
 
     # Set some JsConfigs
-    $this->JsConfig->set('params', [
+    $this->JsConfig->set([
         'base' => $this->base,
         'here' => $this->here,
         'controller' => $this->params['controller'],
         'action' => $this->params['action'],
-    ]);
+    ], 'App');
 
     # Get the JsConfig js object
     echo $this->JsConfig->getObject();
@@ -49,8 +49,7 @@ echo $this->fetch('script-footer');
 
 # JS Core
 echo $this->Html->script('/dist/commons');
-echo $this->Html->script('/dist/Setups/index');
-echo $this->Flash->render();
+echo $this->JsLoader->getViewScript();
 ?>
 </body>
 </html>
