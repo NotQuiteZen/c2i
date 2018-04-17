@@ -1,5 +1,6 @@
 {
   "name": "milanzor/c2i",
+  "license": "MIT",
   "require": {
     "cakephp/cakephp": "2.10.*",
     "cakephp/debug_kit": "2.2.x-dev",
