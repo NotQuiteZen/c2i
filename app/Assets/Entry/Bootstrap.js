@@ -10,7 +10,7 @@ M.AutoInit(document.body);
 /**
  *
  */
-export default class Bootstrap extends DefaultModule {
+export class Bootstrap extends DefaultModule {
     constructor(modules) {
         super();
         if (typeof this.DOMReady === 'function') {

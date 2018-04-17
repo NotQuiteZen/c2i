@@ -17,6 +17,7 @@ class AppController extends Controller {
     ];
 
     public $helpers = [
+        'JsConfig',
         'Html' => ['className' => 'Materialize.MaterializeHtml'],
         'Form' => ['className' => 'Materialize.MaterializeForm'],
         'Paginator' => ['className' => 'Materialize.MaterializePaginator'],

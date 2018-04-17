@@ -1,8 +1,6 @@
 <?php
 /**
  * @var $this HintView
- *
- * TODO Fix this template
  */
 ?><!DOCTYPE html>
 <html>
@@ -24,16 +22,17 @@
     # JS Fetch other scripts
     echo $this->fetch('script');
 
-    # Set js appOptions
+    # Set some JsConfigs
+    $this->JsConfig->set('params', [
+        'base' => $this->base,
+        'here' => $this->here,
+        'controller' => $this->params['controller'],
+        'action' => $this->params['action'],
+    ]);
+
+    # Get the JsConfig js object
+    echo $this->JsConfig->getObject();
     ?>
-    <script>
-        window.appOptions = <?=json_encode([
-            'base' => $this->params['base'],
-            'here' => $this->params['here'],
-            'controller' => $this->params['controller'],
-            'action' => $this->params['action'],
-        ])?>;
-    </script>
 </head>
 <body>
 <?php
