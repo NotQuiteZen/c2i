@@ -20,8 +20,6 @@ class SetupsController extends AppController {
         App::uses('Debugger', 'Utility');
 
         $this->set('pagetitle', 'Welcome to c2i!');
-
-        $this->Toast->set();
     }
 
 }
