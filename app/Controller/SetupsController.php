@@ -21,6 +21,7 @@ class SetupsController extends AppController {
 
         $this->set('pagetitle', 'Welcome to c2i!');
 
+        $this->Toast->set();
     }
 
 }

@@ -7,6 +7,7 @@ App::uses('View', 'View');
  * Define custom helper properties here
  *
  * Helpers
+ * @property ToastHelper                $Toast
  * @property JsLoaderHelper             $JsLoader
  * @property JsConfigHelper             $JsConfig
  * @property MaterializeHtmlHelper      $Html

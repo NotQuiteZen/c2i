@@ -4,12 +4,17 @@ App::uses('Controller', 'Controller');
 
 /**
  * Class AppController
+ *
+ * @property ToastComponent   $Toast
+ * @property CookieComponent  $Cookie
+ * @property SessionComponent $Session
  */
 class AppController extends Controller {
 
     public $useTable = false;
 
     public $components = [
+        'Toast',
         'Cookie',
         'Session',
         'DebugKit.Toolbar',
@@ -17,6 +22,7 @@ class AppController extends Controller {
     ];
 
     public $helpers = [
+        'Toast',
         'JsLoader',
         'JsConfig',
         'Html' => ['className' => 'Materialize.MaterializeHtml'],
