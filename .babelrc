@@ -1,6 +1,7 @@
 {
     "env": {
         "development": {
+            "plugins": ["lodash"],
             "presets": [
                 [
                     "babel-preset-env",
@@ -19,6 +20,7 @@
             ]
         },
         "production": {
+              "plugins": ["lodash"],
             "presets": [
                 [
                     "babel-preset-env",
@@ -37,6 +39,7 @@
             ]
         },
         "test": {
+            "plugins": ["lodash"],
             "presets": [
                 [
                     "babel-preset-env",

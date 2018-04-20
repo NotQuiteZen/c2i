@@ -1,5 +1,5 @@
 // Get lodash
-import _ from 'lodash';
+import _ from 'lodash-es';
 
 /**
  * Config
@@ -60,7 +60,6 @@ export let Config = (function () {
             return path ? path : `${this.get('App.controller')}.${this.get('App.action')}`;
         }
     }
-
 
     return new Config;
 })();

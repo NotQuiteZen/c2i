@@ -1,6 +1,8 @@
 // Get DefaultModule
 import { DefaultModule } from 'stein';
 import { Config } from 'Lib/Config';
+import _ from 'lodash-es';
+
 import '../scss/app.scss';
 
 import M from 'materialize-css';
@@ -34,7 +36,7 @@ export class Bootstrap extends DefaultModule {
 
     renderToasts(toasts) {
         _.each(toasts, (toast) => {
-            this.M.toast({html: toast.message, classes: toast.color});
+            this.M.toast(toast);
         });
     }
 
