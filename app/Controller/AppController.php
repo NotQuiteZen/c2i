@@ -14,7 +14,7 @@ class AppController extends Controller {
     public $useTable = false;
 
     public $components = [
-        'Toast',
+        'Toast' => ['className' => 'Materialize.MaterializeToast'],
         'Cookie',
         'Session',
         'DebugKit.Toolbar',
@@ -22,9 +22,9 @@ class AppController extends Controller {
     ];
 
     public $helpers = [
-        'Toast',
         'JsLoader',
         'JsConfig',
+        'Toast' => ['className' => 'Materialize.MaterializeToast'],
         'Html' => ['className' => 'Materialize.MaterializeHtml'],
         'Form' => ['className' => 'Materialize.MaterializeForm'],
         'Paginator' => ['className' => 'Materialize.MaterializePaginator'],
