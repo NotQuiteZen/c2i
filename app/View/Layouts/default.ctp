@@ -28,7 +28,7 @@
         'here' => $this->here,
         'controller' => $this->params['controller'],
         'action' => $this->params['action'],
-        'toasts' => $this->Toast->render(),
+        'toasts' => $this->Toast->render('array'),
     ], 'App');
 
     # Get the JsConfig js object
