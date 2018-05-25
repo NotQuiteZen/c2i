@@ -1,5 +1,5 @@
 {
-  "name": "milanzor/c2i",
+  "name": "notquitezen/c2i",
   "license": "MIT",
   "require": {
     "cakephp/cakephp": "2.10.*",
