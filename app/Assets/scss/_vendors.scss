@@ -1,7 +1,10 @@
 // Materialize
 @import '~materialize-css/sass/materialize';
-// Material icons
-@import "~material-design-icons/iconfont/material-icons.css";
+
+// Icon font
+$material-icon-font-path: '~@corpoflow/material-icon-font/';
+@import '~@corpoflow/material-icon-font/MaterialIcons-Regular';
+
 // Roboto
 $roboto-font-path: "~roboto-fontface/fonts";
 @import "~roboto-fontface/css/roboto/sass/roboto-fontface";
