@@ -1,7 +1,7 @@
 {
-  "name": "c2i-builder",
+  "name": "c2i-frontend",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "",
   "license": "MIT",
   "scripts": {
     "build": "webpack --progress",
@@ -27,16 +27,18 @@
     "rimraf": "^2.6.2",
     "sass-loader": "^6.0.7",
     "style-loader": "^0.20.3",
-    "webpack": "^4.5.0",
-    "webpack-cli": "^2.0.14",
-    "webpack-jarvis": "^0.3.2",
-    "webpack-merge": "^4.1.2",
-    "webpack-watched-glob-entries-plugin": "^2.1.2"
+    "webpack": "^4.25.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-merge": "^4.1.4",
+    "webpack-watched-glob-entries-plugin": "^2.1.4"
+  },
+  "resolutions": {
+    "webpack-cli/**/jscodeshift": "facebook/jscodeshift#247/head"
   },
   "dependencies": {
+    "@corpoflow/material-icon-font": "^1.0.0",
     "jquery": "^3.3.1",
     "lodash-es": "^4.17.8",
-    "material-design-icons": "^3.0.1",
     "materialize-css": "1.0.0-beta",
     "roboto-fontface": "^0.9.0",
     "stein": "^1.0.5"
