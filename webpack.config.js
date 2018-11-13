@@ -10,9 +10,6 @@ const WebpackWatchedGlobEntries = require('webpack-watched-glob-entries-plugin')
 // Css plugin
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
-// Get Jarvis
-const Jarvis = require("webpack-jarvis");
-
 // Config
 module.exports = (env) => {
 
@@ -130,11 +127,7 @@ module.exports = (env) => {
                 $: "jquery",
                 jQuery: "jquery",
                 "window.jQuery": "jquery"
-            }),
-            // new Jarvis({
-            //     host: '0.0.0.0',
-            //     port: 1337,
-            // })
+            })
         ]
     };
 };
